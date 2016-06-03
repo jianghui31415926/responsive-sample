@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<script src="jquery.js"></script>
+<head>
+<style>
+/*重置*/
+body,h1{margin:0}
+img{display:block;border:none}
+a{text-decoration:none}
+*{font-size:12px;color:#727272;font-family:"微软雅黑","arial"}
+h1{font-weight:normal;}
+input{margin:0;padding:0;border:none;outline:none}
+.clearfix{clear:both;}
+/*顶部*/
+.top_box{background-color:#1a1a1a}
+.top{width:91%;margin-left:auto;margin-right:auto;}
+.logo{float:left;line-height:84px;font-size:20px;color:#ffffff}
+.nav{float:right;margin-top:30px}
+.nav a{font-size:14px;color:#c3c3c3;padding-left:15px;padding-right:15px;border-right:1px solid #323232;float:left;line-height:26px}
+.nav a:hover{color:white}
+.nav_menu{float:right;line-height:50px;color:white;display:none}
+@media (max-width:750px){.nav a{font-size:12px;}}
+@media (max-width:580px){.nav{display:none}.logo{line-height:50px}.nav_menu{display:block}}
+/*通栏*/
+.banner_box{background-color:#05c9c4}
+.banner *{color:white}
+.banner{width:91%;margin-left:auto;margin-right:auto;height:278px;padding-bottom:50px}
+.banner p{width:50%;padding-bottom:30px;}
+.banner h1{padding-top:54px;font-size:30px;padding-bottom:23px;}
+.banner h1 strong{font-size:40px}
+.banner input{border-radius:3px;
+  background-image: -moz-linear-gradient( 90deg, rgb(255,156,1) 0%, rgb(255,194,1) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(255,156,1) 0%, rgb(255,194,1) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(255,156,1) 0%, rgb(255,194,1) 100%);
+  border-top:1px solid white;width:200px;height:40px;  box-shadow: 0.5px 0.866px 1px 0px rgb( 0, 0, 0 );
+}
+.banner input:hover{background-image: -moz-linear-gradient( 90deg, rgb(255,194,1) 0%, rgb(255,156,1) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(255,194,1) 0%, rgb(255,156,1) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(255,194,1) 0%, rgb(255,156,1) 100%);
+  box-shadow: 0.5px 0.866px 1px 0px rgb( 0, 0, 0 );cursor:pointer;
+ }
+
+@media (max-width:580px){.banner h1 strong{font-size:30px;}.banner{padding-bottom:25px}.banner h1{font-size:20px;}}
+/*主要内容*/
+.main{width:91%;margin-left:auto;margin-right:auto;padding-top:21px;padding-bottom:35px}
+body{background-color:#f2f2f2;}
+.column{width:50%;float:left;margin-top:30px;/*加内描边要这样做，只有移动端使用border:solid 3px black;box-sizing:border-box;*/}
+.icon.content{float:left;}
+.icon{position:absolute;padding-top:13px;}
+.content{padding-left:66px;padding-right:24px;}
+.main h1{font-weight:bold;font-size:16px;line-height:44px;border-bottom:solid 2px #e5e5e5;color:#737373}
+.content h2{line-height:20px;font-size:16px;color:#424242}
+.content p{line-height:20px}
+@media (max-width:750px){.column{width:100%}}
+/*更多*/
+.more{display:block;margin-left: auto;margin-right: auto;border-radius: 2px;border: solid 1px #cacaca;
+background-image: -moz-linear-gradient( 90deg, rgb(245,245,245) 0%, rgb(255,255,255) 100%);
+background-image: -webkit-linear-gradient(90deg, rgb(245,245,245) 0%, rgb(255,255,255) 100%);
+background-image: -ms-linear-gradient( 90deg, rgb(245,245,245) 0%, rgb(255,255,255) 100%);
+line-height: 33px;padding-left: 16px;padding-right: 40px;font-size: 14px}
+.more:hover{background-image: -moz-linear-gradient( 90deg, rgb(255,255,255) 0%, rgb(245,245,245) 100%);
+background-image: -webkit-linear-gradient(90deg, rgb(255,255,255) 0%, rgb(245,245,245) 100%);
+background-image: -ms-linear-gradient( 90deg, rgb(255,255,255) 0%, rgb(245,245,245) 100%)}
+.more_arrow{position:relative;margin-left:auto;margin-right: auto;}
+.more_arrow img{position:absolute;right:20px;top:-25px}
+/*下面*/
+.feedback{width:91%;margin-left:auto;margin-right:auto;padding-top:45px;padding-bottom:35px}
+.feedback .column{width:33.3%;float:left;margin-top:30px}
+.feedback .icon .content{float:left;}
+.feedback .icon{position:absolute;}
+.feedback .content_say{padding-left:45px;padding-right:44px;}
+.feedback h1{font-weight:bold;font-size:16px;line-height:44px;border-bottom:solid 2px #e5e5e5;color:#737373}
+.content_say h2{line-height:20px;font-size:14px;color:#424242}
+.content_say p{line-height:20px}
+/*留言*/
+.message{width:91%;margin-left:auto;margin-right:auto;}
+.message *{float:left}
+.textinput{width:70%}
+.btn{width:10%;mini-width:80px;}
+.message h1{width:20%}
+/*或者.textinput{width:100%;display:block;}
+.message div{padding-left:100px;padding-right:80px;position:relative;}
+.message div h1{position:absolute;left:0}
+.message div .btn{position:absolute;right:0}*/
+
+</style>
+<meta charset="utf-8">
+<title>响应式布局</title>
+</head>
+
+<body>
+
+<div class="top_box">
+	<div class="top">
+    <a class="logo" href="">logo位置</a>
+    <div class="nav">
+    	<a href="">首页</a><a href="">案例</a><a href="">关于我们</a><a href="">博客</a><a href="">联系方式</a>
+    </div>
+    <div class="nav_menu">导航菜单</div>
+    <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="banner_box">
+	<div class="banner">
+        <h1>与世界<strong>分享</strong>我们的<strong>快乐</strong></h1>
+        <p>生活可以很难，也可以很简单。同样的，快乐也可以很难，却也似乎可以很简单。。。</p>
+        <input value="注册成为我们的一员" type="button">
+    </div>
+</div>
+
+<div class="main">
+     <h1>生活中这样那样一些有趣的事情</h1>
+     <div class="column">
+         <img class="icon" src="images/icon-location.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+      <div class="column">
+         <img class="icon" src="images/icon-backup.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+       <div class="column">
+         <img class="icon" src="images/icon-twitter.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+       <div class="column">
+         <img class="icon" src="images/icon-stats.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+       <div class="column">
+         <img class="icon" src="images/icon-tools.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+       <div class="column">
+         <img class="icon" src="images/icon-awards.png">
+         <div class="content">
+             <h2>adobe公司将推出animate</h2>
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         </div>
+     </div>
+     <div class="clearfix"></div>
+</div>
+
+<input  class="more" type="button" value="获取更多信息">
+<div class="more_arrow"><img src="images/more.png"></div>
+
+<div class="feedback">
+     <h1>生活中这样那样一些有趣的事情</h1>
+     <div class="column">
+         <img class="icon" src="images/cite.png">
+         <div class="content_say">
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+             <h2>东方不败,<span>adobe</span></h2>
+         </div>
+     </div>
+      <div class="column">
+         <img class="icon" src="images/cite.png">
+         <div class="content_say">
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+             <h2>东方不败,adobe</h2>
+         </div>
+     </div>
+       <div class="column">
+         <img class="icon" src="images/cite.png">
+         <div class="content_say">
+             <p>flash将离我们而去，2016年adobe公司将发布最新版本的flash，升级后的版本不再命名为flash，而是更名为 animatecc</p>
+         	<h2>东方不败,<span>adobe</span></h2>
+         </div>
+     </div>
+     <div class="clearfix"></div>
+</div>
+
+<div class="message">
+    <div><h1>请给我留言</h1>
+    <input class="textinput" type="text">
+    <input type="button" class="btn" value="留言信箱"> </div>
+</div>
+
+<script>
+$(".more_arrow").width($(".more").innerWidth())
+</script>
+
+</body>
+</html>
